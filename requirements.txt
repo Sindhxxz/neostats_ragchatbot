@@ -1,0 +1,10 @@
+streamlit 
+langchain-groq 
+langchain-core
+langchain-community
+chromadb
+pypdf
+unstructured
+python-docx
+tavily-python
+python-dotenv

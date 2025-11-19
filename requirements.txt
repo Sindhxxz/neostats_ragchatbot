@@ -1,8 +1,8 @@
-streamlit 
-langchain
-langchain-groq 
+streamlit
+langchain-groq
 langchain-core
 langchain-community
+langchain-text-splitters
 chromadb
 pypdf
 unstructured

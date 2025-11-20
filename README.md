@@ -122,6 +122,35 @@ http://localhost:8501
 
 ---
 
+## **Knowledge Base**
+
+This chatbot is powered by a Retrieval-Augmented Generation (RAG) knowledge base built from:
+
+### **Metro Group of Hospitals – HR Policies Document**
+Source PDF:
+https://www.metrohospitals.com/wp-content/uploads/2024/01/HR-POLICIES-1-1-1.pdf
+
+The PDF was processed using:
+
+* Word-based chunking
+
+* Jina AI Embeddings
+
+* ChromaDB vector storage
+
+The resulting knowledge base is stored in:
+
+./chroma_db/
+
+
+and is automatically loaded when the app starts.
+
+## **Live Deployment**
+
+The chatbot is deployed at:
+
+https://neostatsragchatbot-mlbtblbqmki5gz4dqvstzx.streamlit.app/
+
 ## **Summary**
 
 This project is a complete **RAG-powered HR Policy Assistant** tailored for **Metro Group of Hospitals**, using:

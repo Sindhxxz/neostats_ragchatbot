@@ -1,8 +1,16 @@
 # **Metro Hospitals HR Policy Assistant**
 
-This repository contains a Streamlit-based **Retrieval-Augmented Generation (RAG)** chatbot designed for the **Metro Group of Hospitals HR Policy** document.
-The assistant allows HR staff and employees to converse with an LLM that references the existing **ChromaDB knowledge base** containing HR policies.
-Optionally, the chatbot can also call **Tavily Web Search** for up-to-date external information.
+This repository contains a Streamlit-based Retrieval-Augmented Generation (RAG) chatbot designed for the Metro Group of Hospitals HR Policy document.
+The assistant allows HR staff and employees to converse with an LLM that references an existing ChromaDB knowledge base containing the HR policies.
+Optionally, the chatbot can also use Tavily Web Search to fetch up-to-date external information.
+
+The application provides two response modes:
+
+* Concise: Short, summarized replies
+
+* Detailed: Expanded, in-depth explanations
+
+The system is powered by Groq LLaMA models (llama-3.3-70b-versatile).
 
 ---
 
@@ -156,9 +164,9 @@ https://neostatsragchatbot-mlbtblbqmki5gz4dqvstzx.streamlit.app/
 This project is a complete **RAG-powered HR Policy Assistant** tailored for **Metro Group of Hospitals**, using:
 
 * **Streamlit** for the UI
-* **Groq LLaMA models** for the LLM
+* **Groq LLaMA models(llama-3.3-70b-versatile)** for the LLM
 * **Jina embeddings** for vector generation
 * **ChromaDB** for policy retrieval
 * **Tavily** for optional web search
 
-The assistant delivers accurate, contextual HR policy answers to employees and HR teams.
+The assistant delivers contextual HR policy answers to employees and HR teams.

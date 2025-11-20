@@ -9,20 +9,6 @@ from utils.logger import default_logger as logger
 
 
 def get_chatgroq_model(api_key: Optional[str] = None, model: Optional[str] = None):
-    """
-    Initialize and return the Groq chat model
-    
-    Args:
-        api_key: Groq API key (optional, will use config/env if not provided)
-        model: Groq model name (optional, will use config/env if not provided)
-    
-    Returns:
-        ChatGroq model instance
-    
-    Raises:
-        ValueError: If API key or model is not provided and not in config
-        RuntimeError: If model initialization fails
-    """
     try:
         # Get API key from parameter, config, or environment
         if not api_key:

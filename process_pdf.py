@@ -1,6 +1,3 @@
-"""
-Script to process a PDF file and add it to the knowledge base with word-based chunking
-"""
 import os
 import sys
 
@@ -20,16 +17,6 @@ def process_pdf_to_knowledge_base(
     embedding_provider: str = "jina",
     embedding_api_key: str = None
 ):
-    """
-    Process a PDF file and add it to the knowledge base
-    
-    Args:
-        pdf_path: Path to the PDF file
-        chunk_size_words: Number of words per chunk (default: 200)
-        chunk_overlap_words: Number of words overlap between chunks (default: 40)
-        embedding_provider: "jina" (default - free service)
-        embedding_api_key: Jina API key (required - free tier available)
-    """
     print(f"Processing PDF: {pdf_path}")
     
     # Check if file exists
@@ -51,7 +38,7 @@ def process_pdf_to_knowledge_base(
     )
     print(f"Created {len(split_docs)} chunks")
     
-    # Initialize embedding model (Jina - Free)
+    # Initialize embedding model
     print(f"Initializing embedding model ({embedding_provider})...")
     if not embedding_api_key:
         embedding_api_key = os.getenv("JINA_API_KEY", "")
@@ -79,11 +66,11 @@ def process_pdf_to_knowledge_base(
             persist_directory=persist_directory,
             collection_name=collection_name
         )
-        print(f"✅ Created new knowledge base with {len(split_docs)} chunks")
+        print(f"Created new knowledge base with {len(split_docs)} chunks")
     else:
         print("Adding documents to existing vector store...")
         add_documents_to_vector_store(vector_store, split_docs)
-        print(f"✅ Added {len(split_docs)} chunks to existing knowledge base")
+        print(f"Added {len(split_docs)} chunks to existing knowledge base")
     
     print("\n" + "="*50)
     print("PDF processing completed successfully!")
@@ -100,8 +87,8 @@ if __name__ == "__main__":
     # Configuration
     chunk_size_words = 200
     chunk_overlap_words = 40  # 20% overlap (40 words out of 200)
-    embedding_provider = "jina"  # Jina (free service)
-    embedding_api_key = os.getenv("JINA_API_KEY", None)  # Set JINA_API_KEY environment variable or pass here
+    embedding_provider = "jina"
+    embedding_api_key = os.getenv("JINA_API_KEY", None) 
     
     try:
         process_pdf_to_knowledge_base(

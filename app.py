@@ -25,16 +25,6 @@ from config.config import Config
 
 
 def get_response_mode_prompt(base_prompt: str, response_mode: str = "concise") -> str:
-    """
-    Get system prompt based on response mode
-
-    Args:
-        base_prompt: Base system prompt
-        response_mode: "concise" or "detailed"
-
-    Returns:
-        Modified system prompt with response mode instructions
-    """
     if response_mode.lower() == "concise":
         mode_instruction = (
             "\n\nIMPORTANT: Provide a CONCISE response. "
@@ -67,23 +57,6 @@ def get_chat_response(
     web_search_api_keys=None,
     response_mode="concise",
 ):
-    """
-    Get response from the chat model with optional RAG and web search
-
-    Args:
-        chat_model: LLM model instance
-        messages: List of message dictionaries
-        system_prompt: Base system prompt
-        vector_store: Vector store instance (optional)
-        use_rag: Whether to use RAG (default: True)
-        use_web_search: Whether to use web search (default: False)
-        web_search_provider: Web search provider name
-        web_search_api_keys: Dictionary of API keys for web search
-        response_mode: Response mode ("concise" or "detailed")
-
-    Returns:
-        Response string from the model
-    """
     try:
         logger.debug(
             f"Getting chat response (RAG={use_rag}, WebSearch={use_web_search}, Mode={response_mode})"
@@ -202,13 +175,12 @@ def get_chat_response(
 
 
 def instructions_page():
-    """Instructions and setup page"""
     st.title("The Chatbot Blueprint")
     st.markdown("Welcome! Follow these instructions to set up and use the chatbot.")
 
     st.markdown(
         """
-    ## 🔧 Installation
+    ## Installation
 
     First, install the required dependencies:
 
@@ -274,8 +246,6 @@ def instructions_page():
 
 
 def initialize_rag_system():
-    """Initialize RAG system components using existing vector store only."""
-    # Initialize embedding model (Jina - Free)
     if "embedding_model" not in st.session_state:
         try:
             embedding_api_key = st.session_state.get("jina_api_key", None)
@@ -362,7 +332,6 @@ def initialize_rag_system():
 
 
 def chat_page():
-    """Main chat interface page"""
     st.title("Metro Hospitals HR Policy Assistant")
 
     # Ensure session state is initialized from environment variables
@@ -522,7 +491,7 @@ def chat_page():
 
 def main():
     st.set_page_config(
-        page_title="LangChain Multi-Provider ChatBot",
+        page_title="AI RAG Chatbot",
         page_icon="🤖",
         layout="wide",
         initial_sidebar_state="expanded",

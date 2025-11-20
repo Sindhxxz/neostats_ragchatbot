@@ -8,16 +8,6 @@ from config.config import Config
 
 
 def get_embedding_model(provider="jina", api_key=None):
-    """
-    Initialize and return an embedding model (Jina - Free)
-    
-    Args:
-        provider: "jina" (default and only option - free service)
-        api_key: Jina API key (optional, will use config/env if not provided)
-    
-    Returns:
-        Embedding model instance
-    """
     try:
         provider_lower = provider.lower()
         logger.info(f"Initializing embedding model: {provider_lower}")

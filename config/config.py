@@ -1,14 +1,10 @@
-"""
-Configuration file for API keys and settings
-"""
 import os
 from pathlib import Path
 from typing import Optional
 import streamlit as st
 
 class Config:
-    """Configuration class for managing API keys and settings"""
-
+    
     # Web Search API Keys
     TAVILY_API_KEY: Optional[str] = st.secrets.get("TAVILY_API_KEY", "")
     
